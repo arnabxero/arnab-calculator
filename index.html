@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnab's Calculator</title>
+    <style>
+        .bt {
+            font-size: 50px;
+            background-color: black;
+            color: white;
+            border: solid rgb(170, 170, 170);
+            width: 100px;
+            border-radius: 10px;
+            height: 100px;
+            border-width: 5px;
+        }
+
+        .bt:hover {
+            font-size: 50px;
+            background-color: rgb(66, 66, 66);
+            color: white;
+            border: solid rgb(227, 85, 255);
+            width: 100px;
+            border-radius: 10px;
+            height: 100px;
+        }
+
+        .bt:active {
+            font-size: 50px;
+            background-color: rgb(199, 199, 199);
+            color: rgb(0, 0, 0);
+            border: solid rgb(149, 149, 255);
+            width: 100px;
+            border-radius: 10px;
+            height: 100px;
+        }
+
+        .screen {
+            text-align: right;
+            font-size: 50px;
+            background-color: white;
+            color: black;
+            border: solid rgb(0, 0, 0);
+            width: 322px;
+            border-radius: 5px;
+            height: 100px;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table cellspacing="1">
+        <tr>
+            <td>
+                <input id="scrn" class="screen" type="text">
+            </td>
+            <td>
+                <button class="bt" style="color:red; margin-left: 15px;" onclick="del()">C</button>
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="15">
+        <tr>
+            <td>
+                <input onclick="addtodisp('7')" type="button" class="bt" value="7">
+            </td>
+            <td>
+                <input onclick="addtodisp('8')" type="button" class="bt" value="8">
+            </td>
+            <td>
+                <input onclick="addtodisp('9')" type="button" class="bt" value="9">
+            </td>
+            <td>
+                <input onclick="addtodisp('/')" type="button" class="bt" value="÷">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input onclick="addtodisp('4')" type="button" class="bt" value="4">
+            </td>
+            <td>
+                <input onclick="addtodisp('5')" type="button" class="bt" value="5">
+            </td>
+            <td>
+                <input onclick="addtodisp('6')" type="button" class="bt" value="6">
+            </td>
+            <td>
+                <input onclick="addtodisp('*')" type="button" class="bt" value="x">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input onclick="addtodisp('1')" type="button" class="bt" value="1">
+            </td>
+            <td>
+                <input onclick="addtodisp('2')" type="button" class="bt" value="2">
+            </td>
+            <td>
+                <input onclick="addtodisp('3')" type="button" class="bt" value="3">
+            </td>
+            <td>
+                <input onclick="addtodisp('-')" type="button" class="bt" value="-">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input onclick="addtodisp('0')" type="button" class="bt" value="0">
+            </td>
+            <td>
+                <input onclick="addtodisp('.')" type="button" class="bt" value=".">
+            </td>
+            <td>
+                <input onclick="eq()" type="button" class="bt" value="=">
+            </td>
+            <td>
+                <input onclick="addtodisp('+')" type="button" class="bt" value="+">
+            </td>
+        </tr>
+
+    </table>
+
+
+    <script>
+        var disp = "";
+        var res = 0;
+
+        function addtodisp(cbt) {
+            disp = disp + cbt;
+            document.getElementById("scrn").value = disp;
+        }
+
+        function eq() {
+            var x = document.getElementById("scrn").value;
+            res = eval('(' + x + ')');
+            document.getElementById("scrn").value = res;
+            disp = res;
+        }
+
+        function del() {
+            document.getElementById("scrn").value = "";
+            res = 0;
+            disp = "";
+        }
+    </script>
+
+</body>
+
+</html>
